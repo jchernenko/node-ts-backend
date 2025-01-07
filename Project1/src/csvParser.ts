@@ -8,7 +8,7 @@ export const parseCSV = async (filePath: string): Promise<User[]> => {
     fs.createReadStream(filePath)
       .pipe(csv())
       .on('data', (row) => {
-        const { id, first_name, last_name, age, admin } = row;
+        const { id, first_name, last_name, email, age, admin } = row;
 
         // Skip rows with missing or invalid data
         if (!last_name) {
@@ -18,12 +18,13 @@ export const parseCSV = async (filePath: string): Promise<User[]> => {
         const name = `${first_name} ${last_name}`;
 
         // Validate and process data
-        if (id && name && age && admin) {
+        if (id && name && email && age && admin) {
           const userAge = parseInt(age, 10);
           if (userAge > 18) {
             users.push({
               id,
               name,
+              email,
               age: userAge,
               isAdmin: admin.toLowerCase() === 'true',
             });

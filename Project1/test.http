@@ -1,5 +1,27 @@
-GET http://localhost:3000/api/users?limit=1000&isAdmin=false
 
+//All Users
+GET http://localhost:3000/api/users?limit=1000
+
+//Admin Only
+//GET http://localhost:3000/api/users?limit=1000&isAdmin=true
+
+//Non-Admin Only
+//GET http://localhost:3000/api/users?limit=1000&isAdmin=false
+
+//Search By ID
 //GET http://localhost:3000/api/users/1001
 
-//DELETE http://localhost:3000/api/users/1001
+//Delete By ID
+DELETE http://localhost:3000/api/users/1001
+
+//Create a New User
+POST http://localhost:3000/api/users
+Content-Type: application/json
+
+{
+  "id": "1001",
+  "name": "John Doe",
+  "email": "john.doe@yahoo.com",
+  "age": 29,
+  "isAdmin": false
+}

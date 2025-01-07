@@ -77,10 +77,10 @@ router.delete('/users/:id', async (req, res) => {
 
 // Route: Create a new user
 router.post('/users', async (req, res) => {
-  const { id, name, age, isAdmin } = req.body;
+  const { id, name, email, age, isAdmin } = req.body;
 
   // Validate request body
-  if (!id || !name || !age || isAdmin === undefined) {
+  if (!id || !name || !email || !age || isAdmin === undefined) {
     res.status(400).send('Missing required fields');
     return;
   }
@@ -93,9 +93,10 @@ router.post('/users', async (req, res) => {
   try {
     const db = await getDb();
     await db.run(
-      'INSERT INTO users (id, name, age, isAdmin) VALUES (?, ?, ?, ?)',
+      'INSERT INTO users (id, name, email, age, isAdmin) VALUES (?, ?, ?, ?, ?)',
       id,
       name,
+      email,
       age,
       isAdmin ? 1 : 0
     );

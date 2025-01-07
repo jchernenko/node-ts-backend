@@ -14,6 +14,7 @@ export const initializeDb = async (): Promise<Database> => {
     CREATE TABLE IF NOT EXISTS users (
       id TEXT PRIMARY KEY,
       name TEXT NOT NULL,
+      email TEXT NOT NULL,
       age INTEGER NOT NULL,
       isAdmin BOOLEAN NOT NULL
     )
@@ -31,9 +32,10 @@ export const insertUsers = async (db: Database, users: User[]): Promise<void> =>
       const existingUser = await db.get('SELECT id FROM users WHERE id = ?', user.id);
       if (!existingUser) {
         await db.run(
-          'INSERT INTO users (id, name, age, isAdmin) VALUES (?, ?, ?, ?)',
+          'INSERT INTO users (id, name, email, age, isAdmin) VALUES (?, ?, ?, ?, ?)',
           user.id,
           user.name,
+          user.email,
           user.age,
           user.isAdmin ? 1 : 0
         );
@@ -51,6 +53,7 @@ export const resetUsersTable = async (db: Database): Promise<void> => {
     CREATE TABLE users (
       id TEXT PRIMARY KEY,
       name TEXT NOT NULL,
+      email TeXT NOT NULL,
       age INTEGER NOT NULL,
       isAdmin BOOLEAN NOT NULL
     )
