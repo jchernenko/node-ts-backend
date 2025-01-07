@@ -1,0 +1,5 @@
+GET http://localhost:3000/api/users?limit=1000&isAdmin=false
+
+//GET http://localhost:3000/api/users/1001
+
+//DELETE http://localhost:3000/api/users/1001

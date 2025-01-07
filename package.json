@@ -1,0 +1,29 @@
+{
+  "name": "cocoflo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node Project1/dist/server.js",
+    "build": "tsc",
+    "dev": "nodemon --watch Project1/src --ext ts --exec ts-node Project1/src/server.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "csv-parser": "^3.1.0",
+    "express": "^4.21.2",
+    "sqlite": "^5.1.1",
+    "sqlite3": "^5.1.7"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.10.5",
+    "@types/sqlite3": "^3.1.11",
+    "nodemon": "^3.1.9",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.2"
+  }
+}

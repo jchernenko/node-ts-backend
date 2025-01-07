@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "module": "commonjs",
+    "outDir": "./Project1/dist",  // Compiled files go to Project1/dist.
+    "rootDir": "./Project1/src", // Source files are in Project1/src.
+    "strict": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true
+  },
+  "include": ["Project1/src/**/*.ts"],  // Look for .ts files in Project1/src.
+  "exclude": ["node_modules", "Project1/dist"] // Exclude node_modules and dist.
+}
